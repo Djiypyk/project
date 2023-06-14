@@ -4,9 +4,13 @@
 
     --font-size-m: 16px;
     --font-line-m: 24px;
-    --font-m: var(var(--font-size-m) / var(var(--font-line-m)) var(var(--font-family-main)))
+    --font-m: var(var(--font-size-m) / var(var(--font-line-m)) var(var(--font-family-main)));
     
     --font-line-l: 32px;
     --font-size-l: 24px;
-    --font-l: var(var(--font-size-l) / var(var(--font-line-l)) var(var(--font-family-main)))
+    --font-l: var(var(--font-size-l) / var(var(--font-line-l)) var(var(--font-family-main)));
+
+    //Размер
+
+    --navbar-height: 50px;
 }
