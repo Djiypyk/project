@@ -13,7 +13,6 @@ function App() {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-
             <Suspense fallback="">
                 <Navbar />
                 <div className="content-page">
@@ -21,7 +20,6 @@ function App() {
                     <AppRouter />
                 </div>
             </Suspense>
-
         </div>
     );
 }

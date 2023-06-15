@@ -6,9 +6,10 @@ module.exports = {
     extends: [
         'plugin:react/recommended',
         'airbnb',
+        'plugin:i18next/recommended',
+        // 'prettier',
     ],
-    overrides: [
-    ],
+    overrides: [],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -17,14 +18,15 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-    ],
+    plugins: ['react', 'i18next'],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ss', '.tsx'] }],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.ss', '.tsx'] },
+        ],
         'react/react-in-jsx-scope': 'off',
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
@@ -39,6 +41,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'import/no-extraneous-dependencies': 'warn',
         'no-underscore-dangle': 'warn',
+        'i18next/no-literal-string': ['warn', { markupOnly: true }],
     },
     globals: {
         __IS_DEV__: true,

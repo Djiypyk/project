@@ -6,9 +6,11 @@
     align-items: center;
     padding: 20px;
 }
-.links{
+
+.links {
     margin-left: auto;
+
     :first-child {
-        margin-right: 15px;    
-    }   
+        margin-right: 15px;
+    }
 }

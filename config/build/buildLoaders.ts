@@ -27,7 +27,6 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                             ? '[path][name]__[local]'
                             : '[hash:base64:8]',
                     },
-
                 },
             },
             'sass-loader',
@@ -43,10 +42,5 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-    return [
-        svgLoader,
-        fileLoader,
-        typescriptLoader,
-        cssLoaders,
-    ];
+    return [svgLoader, fileLoader, typescriptLoader, cssLoaders];
 }

@@ -7,7 +7,6 @@ import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string
-
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
@@ -19,7 +18,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
     return (
         <div
-            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <button onClick={onToggle}>Toggle</button>
             <div className={cls.switchers}>

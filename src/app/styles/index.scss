@@ -3,18 +3,15 @@
 @import 'themes/dark';
 @import 'themes/normal';
 
-.app{
+.app {
     font: var(--font-m);
-
     background: var(--bg-color);
     color: var(--primary-color);
-
     min-height: 100vh;
 }
 
 .content-page {
     display: flex;
-
 }
 
 .page-wrapper {
