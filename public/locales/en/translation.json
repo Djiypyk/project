@@ -1,6 +1,10 @@
 {
-    "Тестовый пример": "Text example",
-    "Перевод": "Translate",
-    "Главная страница": "Main Page",
-    "Язык": "English"
+  "Тестовый пример": "Text example",
+  "Перевод": "Translate",
+  "Главная страница": "Main Page",
+  "Язык": "English",
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "Something went wrong",
+  "Обновить страницу": "Reload page",
+  "Throw Error": "Пробросить ошибку"
 }
