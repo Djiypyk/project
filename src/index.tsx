@@ -1,15 +1,12 @@
-// import {render} from 'react-dom'
-import { createRoot } from 'react-dom/client';
+import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 import App from './app/App';
-import { ThemeProvider } from './app/providers/ThemeProvider';
-import { ErrorBoundary } from './app/providers/ErrorBoundary';
-import 'shared/config/i18n/i18n';
 
-const container = document.getElementById('root');
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(
+import './shared/config/i18n/i18n';
+import { ErrorBoundary } from './app/providers/ErrorBoundary';
+
+render(
     <BrowserRouter>
         <ErrorBoundary>
             <ThemeProvider>
@@ -17,9 +14,5 @@ root.render(
             </ThemeProvider>
         </ErrorBoundary>
     </BrowserRouter>,
+    document.getElementById('root'),
 );
-
-// render(
-//     <div><Counter/></div>,
-//     container
-// )

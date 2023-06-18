@@ -1,7 +1,6 @@
 {
-    "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
-    "cSpell.words": [
-        "Размер"
-    ],
-    "i18n-ally.keystyle": "nested"
+    "i18n-ally.localesPaths": [
+        "public/locales",
+        "src/shared/config/i18n"
+    ]
 }
