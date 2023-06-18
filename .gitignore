@@ -13,4 +13,6 @@
 .env.production.local
 /.vscode
 /storybook-static
+.loki/report.html
+.loki/report.json
 npm-debug.log*

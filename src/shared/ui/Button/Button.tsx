@@ -32,7 +32,6 @@ export const Button: FC<ButtonProps> = (props) => {
     };
 
     const additionalClass = [className, cls[theme], cls[size]];
-    
     return (
         <button
             type="button"

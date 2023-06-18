@@ -50,8 +50,8 @@ Background.args = {
     theme: ButtonTheme.BACKGROUND,
 };
 
-export const Background_Inverted = Template.bind({});
-Background_Inverted.args = {
+export const BackgroundInverted = Template.bind({});
+BackgroundInverted.args = {
     children: 'Text',
     theme: ButtonTheme.BACKGROUND_INVERTED,
 };

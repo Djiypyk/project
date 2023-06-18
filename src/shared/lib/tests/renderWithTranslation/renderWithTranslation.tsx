@@ -12,7 +12,7 @@ export function renderWithTranslation(
     component: ReactNode,
     options: renderWithRouterOptions,
 ) {
-    const {route} = options
+    const { route } = options;
     return render(
         <MemoryRouter initialEntries={[]}>
             <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
