@@ -5,13 +5,12 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Modal } from 'shared/ui/Modal/Modal';
-import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 function App() {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -19,9 +18,9 @@ function App() {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="">
+            <Suspense fallback=''>
                 <Navbar />
-                <div className="content-page">
+                <div className='content-page'>
                     <Sidebar />
                     <AppRouter />
                 </div>

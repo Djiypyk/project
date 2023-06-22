@@ -14,11 +14,11 @@ type HTMlInputProps = Omit<
 >
 
 interface InputProps extends HTMlInputProps {
-    className?: string
-    value?: string
-    placeholder?: string
-    autoFocus?: boolean
-    onChange?: (value: string) => void
+    className?: string;
+    value?: string;
+    placeholder?: string;
+    autoFocus?: boolean;
+    onChange?: (value: string) => void;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -75,8 +75,8 @@ export const Input = memo((props: InputProps) => {
                     onSelect={onSelect}
                     type={type}
                     value={value}
-                    name=""
-                    id=""
+                    name=''
+                    id=''
                     {...otherProps}
                     className={cls.input}
                 />

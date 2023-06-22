@@ -15,7 +15,7 @@
     {
       "id": "1",
       "body": "some comment",
-      "postId":"1"
+      "postId": "1"
     }
   ],
   "users": [
@@ -35,5 +35,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Nikolai",
+    "lastname": "Djiypyk",
+    "age": 22,
+    "currency": "BLR",
+    "counter": "Belarus",
+    "city": "Rechitsa",
+    "username": "admin",
+    "avatar": "https://sun23-1.userapi.com/impg/EGg5ACu5lnGG_CPa0S1oXuFBLHKijDSCB3-1.userapi.com/impg/EGg5ACu5lnGG_CPa0S1oXuFBLHKijDSCB8jSDA/VN0uyWoA-PQ.jpg?size=366x667&quality=96&sign=1752e8004066514f8d21c3782a19512e&type=album"
+  }
 }

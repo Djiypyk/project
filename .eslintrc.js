@@ -20,6 +20,7 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
     rules: {
+        'jsx-quotes': ['error', 'prefer-single'],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
