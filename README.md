@@ -14,7 +14,7 @@ I try to stick to the Feature Slice Design architecture. But if you have any com
 - React
 - Redux Toolkit Query (in future)
 - Jest, React testing library
-- Storybook (in future)
+- Storybook
 
 ## Installation
 
