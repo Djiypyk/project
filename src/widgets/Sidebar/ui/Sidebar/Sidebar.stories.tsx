@@ -24,6 +24,10 @@ export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } })];
 
+export const Purple = Template.bind({});
+Purple.args = {};
+Purple.decorators = [ThemeDecorator(Theme.PURPLE), StoreDecorator({ user: { authData: {} } })];
+
 export const NoAuth = Template.bind({});
 NoAuth.args = {};
 NoAuth.decorators = [StoreDecorator({ user: {} })];
