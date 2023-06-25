@@ -57,9 +57,12 @@ module.exports = {
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'warn',
         'react/jsx-no-useless-fragment': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
+        __PROJECT__: true,
     },
     overrides: [
         {

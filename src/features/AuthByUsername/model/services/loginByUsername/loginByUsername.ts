@@ -3,20 +3,26 @@ import axios from 'axios';
 
 import { User, userActions } from 'entities/User';
 import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localstorage';
+import { ThunkConfig, ThunkExtraArg } from 'app/providers/StoreProvider';
 
 interface loginByUsernameProps {
-    username: string
-    password: string
+    username: string;
+    password: string;
 }
 
 export const loginByUsername = createAsyncThunk<
     User,
     loginByUsernameProps,
-    { rejectValue: string }
->('login/loginByUsername', async (authData, thunkApi) => {
+    ThunkConfig<string>
+>('login/loginByUsername', async (authData, thunkAPI) => {
+    const {
+        dispatch,
+        extra,
+        rejectWithValue,
+    } = thunkAPI;
     try {
-        const response = await axios.post(
-            'http://localhost:8000/login',
+        const response = await extra.api.post<User>(
+            '/login',
             authData,
         );
         if (!response.data) {
@@ -26,11 +32,12 @@ export const loginByUsername = createAsyncThunk<
             USER_LOCAL_STORAGE_KEY,
             JSON.stringify(response.data),
         );
-        thunkApi.dispatch(userActions.setAuthData(response.data));
+        dispatch(userActions.setAuthData(response.data));
+        // extra.navigate('about');
 
         return response.data;
     } catch (e) {
         console.log(e);
-        return thunkApi.rejectWithValue('error');
+        return rejectWithValue('error');
     }
 });
