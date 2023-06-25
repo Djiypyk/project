@@ -24,6 +24,10 @@ export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
+export const Purple = Template.bind({});
+Purple.args = {};
+Purple.decorators = [ThemeDecorator(Theme.PURPLE), StoreDecorator({})];
+
 export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
 AuthNavbar.decorators = [
