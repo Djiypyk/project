@@ -1,10 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import ProfilePage from './ProfilePage';
@@ -24,14 +22,13 @@ Normal.args = {};
 Normal.decorators = [StoreDecorator({
     profile: {
         form: {
-            username: 'username',
-            lastname: 'lastname',
-            first: 'first',
-            age: 18,
+            username: 'admin',
+            age: 22,
             country: Country.UKRAINE,
-            currency: Currency.BLR,
-            city: 'city',
-            avatar: '',
+            lastname: 'ulbi tv',
+            first: 'asd',
+            city: 'asf',
+            currency: Currency.USD,
         },
     },
 })];
@@ -41,14 +38,29 @@ Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     profile: {
         form: {
-            username: 'username',
-            lastname: 'lastname',
-            first: 'first',
-            age: 18,
+            username: 'admin',
+            age: 22,
             country: Country.UKRAINE,
-            currency: Currency.BLR,
-            city: 'city',
-            avatar: '',
+            lastname: 'ulbi tv',
+            first: 'asd',
+            city: 'asf',
+            currency: Currency.USD,
+        },
+    },
+})];
+
+export const Purple = Template.bind({});
+Purple.args = {};
+Purple.decorators = [ThemeDecorator(Theme.PURPLE), StoreDecorator({
+    profile: {
+        form: {
+            username: 'admin',
+            age: 22,
+            country: Country.UKRAINE,
+            lastname: 'ulbi tv',
+            first: 'asd',
+            city: 'asf',
+            currency: Currency.USD,
         },
     },
 })];
