@@ -2,6 +2,9 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
@@ -82,4 +85,17 @@ const article: Article = {
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+
+};
+Primary.decorators = [StoreDecorator({
+    articleDetails: {
+        isLoading: false,
+        data: {
+            id: '1',
+            title: 'Some title',
+            subtitle: 'Some subtitle',
+
+        },
+    },
+})];

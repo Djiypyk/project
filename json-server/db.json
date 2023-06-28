@@ -109,19 +109,22 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png"
     },
     {
       "id": "3",
       "username": "otherUser",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png"
     }
   ],
   "profile": {
