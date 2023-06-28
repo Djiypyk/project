@@ -102,6 +102,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Новый коммент",
+      "id": "CxM3OHJ"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "new",
+      "id": "-_5bOMt"
     }
   ],
   "users": [
@@ -127,15 +139,28 @@
       "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png"
     }
   ],
-  "profile": {
-    "first": "Mikalai",
-    "lastname": "Zarazaka",
-    "age": 29,
-    "currency": "RUB",
-    "counter": "Belarus",
-    "city": "Rechitsa",
-    "username": "admin",
-    "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png",
-    "country": "Belarus"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Mikalai",
+      "lastname": "Zarazaka",
+      "age": 29,
+      "currency": "RUB",
+      "city": "Rechitsa",
+      "username": "Djiypyk",
+      "avatar": "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png",
+      "country": "Belarus"
+    },
+    {
+      "id": "2",
+      "first": "Alex",
+      "lastname": "Marales",
+      "age": 27,
+      "currency": "RUB",
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://thumbs.dreamstime.com/b/female-avatar-icon-flat-style-female-user-icon-cartoon-woman-vector-stock-91462850.jpg",
+      "country": "Belarus"
+    }
+  ]
 }

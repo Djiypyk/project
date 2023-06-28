@@ -20,6 +20,7 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -38,6 +39,9 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
     const error = useSelector(getProfileError);
+    const { id } = useParams<{
+        id: string
+    }>();
 
     const validateErrorTranslation = {
         [ValidateProfileError.SERVER_ERROR]: t('Ошибка на сервере при сохранении'),
@@ -50,7 +54,9 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     };
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     });
 
     const onChangeFirstname = useCallback((firstname?: string) => {
