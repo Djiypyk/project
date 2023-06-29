@@ -12,6 +12,11 @@ export default {
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const article: Article = {
+    user: {
+        id: '1',
+        username: 'username',
+        avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png',
+    },
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',

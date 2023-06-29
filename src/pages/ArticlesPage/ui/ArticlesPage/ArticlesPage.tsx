@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleList, ArticleView } from 'entities/Article';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlePageProps {
@@ -9,9 +10,13 @@ interface ArticlePageProps {
 
 const ArticlesPage = (props: ArticlePageProps) => {
     const { className } = props;
-    // const { t } = useTranslation();
     return (
-        <div className={classNames(cls.ArticlesPage, {}, [className])}>Articles Page</div>
+        <div className={classNames(cls.ArticlesPage, {}, [className])}>
+            <ArticleList
+                articles={[]}
+                view={ArticleView.SMALL}
+            />
+        </div>
     );
 };
 

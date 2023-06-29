@@ -2,12 +2,11 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/article/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -17,6 +16,11 @@ export default {
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
 
 const article: Article = {
+    user: {
+        username: 'username',
+        id: '1',
+        avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png',
+    },
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
