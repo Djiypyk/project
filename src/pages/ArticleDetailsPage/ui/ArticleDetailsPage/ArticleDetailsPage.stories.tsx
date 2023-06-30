@@ -90,13 +90,36 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDe
 export const Primary = Template.bind({});
 Primary.args = {};
 Primary.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: false,
-        data: {
-            id: '1',
-            title: 'Some title',
-            subtitle: 'Some subtitle',
-
+    articleDetailsComments: {
+        ids: ['1', '2', '3'],
+        entities: {
+            1: {
+                user: {
+                    username: 'username',
+                    id: '1',
+                    avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png',
+                },
+                id: '1',
+                text: 'Hello',
+            },
+            2: {
+                user: {
+                    username: 'username',
+                    id: '1',
+                    avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png',
+                },
+                id: '2',
+                text: 'Hello',
+            },
+            3: {
+                user: {
+                    username: 'username',
+                    id: '1',
+                    avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png',
+                },
+                id: '3',
+                text: 'Hello',
+            },
         },
     },
 })];

@@ -19,7 +19,6 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps
         className,
         view,
     } = props;
-    console.log(view);
     if (view === ArticleView.BIG) {
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
