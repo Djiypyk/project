@@ -16,6 +16,7 @@ import { CommentList } from 'entities/Comment';
 import { ArticleDetails } from 'entities/Article';
 
 import { AddCommentForm } from 'features/AddCommentForm';
+import { Page } from 'shared/ui/Page/Page';
 import {
     fetchCommentByArticleId,
 } from '../../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
@@ -66,7 +67,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     }
     return (
         <DynamicModuleLoader reducers={reducersList}>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
                 <ArticleDetails articleId={id} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
@@ -76,7 +77,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     comments={comments}
 
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
 
     );
