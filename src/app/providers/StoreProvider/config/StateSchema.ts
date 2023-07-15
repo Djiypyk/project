@@ -2,7 +2,6 @@ import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router-dom';
 
 import { LoginSchema } from 'features/AuthByUsername';
 import { UserSchema } from 'entities/User';
@@ -11,10 +10,11 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 
 export interface StateSchema {
     user: UserSchema;
-
+    scrollRestoration: ScrollRestorationSchema;
     // Async reducers
     profile?: ProfileSchema;
     loginForm?: LoginSchema;
@@ -22,6 +22,7 @@ export interface StateSchema {
     articleDetailsComments?: ArticleDetailsCommentSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlePageSchema;
+
 }
 
 export type StateSchemaKey = keyof StateSchema
