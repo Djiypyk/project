@@ -9,6 +9,7 @@ import {
     getArticlesPageSearch,
     getArticlesPageSort,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelector';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 
 interface FetchArticleListProps {
     replace?: boolean
@@ -29,17 +30,20 @@ export const fetchArticlesList = createAsyncThunk<
     const limit = getArticlesPageLimit(getState());
     const order = getArticlesPageOrder(getState());
     const sort = getArticlesPageSort(getState());
-    const searchValue = getArticlesPageSearch(getState());
+    const search = getArticlesPageSearch(getState());
     const page = getArticlesPagePageNumber(getState());
 
     try {
+        addQueryParams({
+            sort, order, search,
+        });
         const response = await extra.api.get<Article[]>('/articles', {
             params: {
                 _expand: 'user',
                 _limit: limit,
                 _sort: sort,
                 _order: order,
-                _search: searchValue,
+                _search: search,
                 q: page,
             },
         });
