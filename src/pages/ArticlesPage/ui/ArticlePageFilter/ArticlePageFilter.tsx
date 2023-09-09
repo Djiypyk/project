@@ -48,13 +48,13 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
     const onChangeSort = useCallback((sort: ArticleSortField) => {
         dispatch(articlePageActions.setSort(sort));
         dispatch(articlePageActions.setPage(1));
-        debouncedFetchData();
+        fetchData();
     }, [dispatch, debouncedFetchData]);
 
     const onChangeOrder = useCallback((order: SortOrder) => {
         dispatch(articlePageActions.setOrder(order));
         dispatch(articlePageActions.setPage(1));
-        debouncedFetchData();
+        fetchData();
     }, [debouncedFetchData, dispatch]);
 
     const onChangeSearch = useCallback((searchValue: string) => {
@@ -66,7 +66,7 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
     const onChangeType = useCallback((value: ArticleType) => {
         dispatch(articlePageActions.setType(value));
         dispatch(articlePageActions.setPage(1));
-        debouncedFetchData();
+        fetchData();
     }, [dispatch, debouncedFetchData]);
 
     return (
