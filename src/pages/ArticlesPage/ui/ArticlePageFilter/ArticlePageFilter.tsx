@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { useTranslation } from 'react-i18next';
@@ -11,9 +11,12 @@ import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import { ArticleType } from 'entities/Article/model/types/article';
+import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
 import {
     getArticlesPageOrder, getArticlesPageSearch,
-    getArticlesPageSort,
+    getArticlesPageSort, getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelector';
 import { articlePageActions } from '../../model/slices/articlePageSlice';
@@ -31,6 +34,7 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
     const order = useSelector(getArticlesPageOrder);
     const sort = useSelector(getArticlesPageSort);
     const searchValue = useSelector(getArticlesPageSearch);
+    const type = useSelector(getArticlesPageType);
 
     const fetchData = useCallback(() => {
         dispatch(fetchArticlesList({ replace: true }));
@@ -45,19 +49,25 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
         dispatch(articlePageActions.setSort(sort));
         dispatch(articlePageActions.setPage(1));
         debouncedFetchData();
-    }, [dispatch, fetchData]);
+    }, [dispatch, debouncedFetchData]);
 
     const onChangeOrder = useCallback((order: SortOrder) => {
         dispatch(articlePageActions.setOrder(order));
         dispatch(articlePageActions.setPage(1));
         debouncedFetchData();
-    }, [dispatch, fetchData]);
+    }, [debouncedFetchData, dispatch]);
 
     const onChangeSearch = useCallback((searchValue: string) => {
         dispatch(articlePageActions.setSearch(searchValue));
         dispatch(articlePageActions.setPage(1));
         debouncedFetchData();
-    }, [dispatch, fetchData]);
+    }, [dispatch, debouncedFetchData]);
+
+    const onChangeType = useCallback((value: ArticleType) => {
+        dispatch(articlePageActions.setType(value));
+        dispatch(articlePageActions.setPage(1));
+        debouncedFetchData();
+    }, [dispatch, debouncedFetchData]);
 
     return (
         <div className={classNames('', {}, [className])}>
@@ -73,6 +83,7 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
             <Card className={cls.search}>
                 <Input value={searchValue} placeholder={t('Поиск')} onChange={onChangeSearch} />
             </Card>
+            <ArticleTypeTabs className={cls.tabs} onTabClick={onChangeType} value={type} />
 
         </div>
     );
