@@ -4,6 +4,7 @@ import { Article, ArticleView } from 'entities/Article';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localstorage';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { SortOrder } from 'shared/types';
+import { action } from '@storybook/addon-actions';
 import { ArticlePageSchema } from '../types/ArticlePageSchema';
 
 import { fetchArticlesList } from '../services/fetchArticleList/fetchArticlesList';
@@ -55,15 +56,22 @@ export const articlePageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchArticlesList.pending, (state) => {
+            .addCase(fetchArticlesList.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
+                }
             })
-            .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Article[]>) => {
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
-                articlesAdapter.addMany(state, action.payload);
                 state.hasMore = action.payload.length > 0;
-                state.error = undefined;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                } else {
+                    articlesAdapter.addMany(state, action.payload);
+                }
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;

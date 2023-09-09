@@ -35,10 +35,7 @@ const ArticlesPage = (props: ArticlePageProps) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const view = useSelector(getArticlesPageView);
-    const error = useSelector(getArticlesPageError);
-    const inited = useSelector(getArticlesPageInited);
     const isLoading = useSelector(getArticlesPageIsLoading);
-    const page = useSelector(getArticlesPagePageNumber);
 
     useInitialEffect(() => {
         dispatch(initArticlesPage());
