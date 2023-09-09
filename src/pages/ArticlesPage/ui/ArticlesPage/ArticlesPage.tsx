@@ -1,5 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -11,13 +12,7 @@ import { Page } from 'widgets/Page/Page';
 import { ArticlePageFilter } from 'pages/ArticlesPage/ui/ArticlePageFilter/ArticlePageFilter';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
-import {
-    getArticlesPageError,
-    getArticlesPageInited,
-    getArticlesPageIsLoading,
-    getArticlesPagePageNumber,
-    getArticlesPageView,
-} from '../../model/selectors/articlesPageSelector';
+import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelector';
 import { articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 
 import cls from './ArticlesPage.module.scss';
@@ -36,9 +31,9 @@ const ArticlesPage = (props: ArticlePageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const view = useSelector(getArticlesPageView);
     const isLoading = useSelector(getArticlesPageIsLoading);
-
+    const [searchParams] = useSearchParams();
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     const onLoadNextPartArticle = useCallback(() => {
